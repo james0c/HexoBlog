@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ic_public_file_filled.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ic_public_file_filled.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="写在前面20年寒假自学python用的就是这本书，转眼间已过去近两年。当时随着进度也写过章节练习，还在团队群里分享过一份压缩包。但后来因为操作失误导致C盘格式化，放在桌面的代码文件夹全部丢失。有段时间没写python了，决定重新过一遍练习，复习语法的同时也希望给初学的朋友提供参考，毕竟《从入门到实践》这本书写得不错，当自学材料比较合适。 本篇包括2-5章练习代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《python编程：从入门到实践》练习题代码示例2-5章">
+<meta property="og:url" content="http://example.com/2021/12/15/2-5ch/index.html">
+<meta property="og:site_name" content="Yc-Official">
+<meta property="og:description" content="写在前面20年寒假自学python用的就是这本书，转眼间已过去近两年。当时随着进度也写过章节练习，还在团队群里分享过一份压缩包。但后来因为操作失误导致C盘格式化，放在桌面的代码文件夹全部丢失。有段时间没写python了，决定重新过一遍练习，复习语法的同时也希望给初学的朋友提供参考，毕竟《从入门到实践》这本书写得不错，当自学材料比较合适。 本篇包括2-5章练习代码。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-15T07:51:07.420Z">
+<meta property="article:modified_time" content="2022-01-15T12:40:35.804Z">
+<meta property="article:author" content="YangChen">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/12/15/2-5ch/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>《python编程：从入门到实践》练习题代码示例2-5章 | Yc-Official</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yc-Official</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Personal Website</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/15/2-5ch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YangChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yc-Official">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《python编程：从入门到实践》练习题代码示例2-5章
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-12-15 15:51:07" itemprop="dateCreated datePublished" datetime="2021-12-15T15:51:07+08:00">2021-12-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-15 20:40:35" itemprop="dateModified" datetime="2022-01-15T20:40:35+08:00">2022-01-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>20年寒假自学python用的就是这本书，转眼间已过去近两年。当时随着进度也写过章节练习，还在团队群里分享过一份压缩包。但后来因为操作失误导致C盘格式化，放在桌面的代码文件夹全部丢失。有段时间没写python了，决定重新过一遍练习，复习语法的同时也希望给初学的朋友提供参考，毕竟《从入门到实践》这本书写得不错，当自学材料比较合适。</p>
+<p>本篇包括2-5章练习代码。</p>
+<span id="more"></span>
+
+<h2 id="第2章-变量和简单数据类型"><a href="#第2章-变量和简单数据类型" class="headerlink" title="第2章 变量和简单数据类型"></a>第2章 变量和简单数据类型</h2><p>2-1</p>
+<pre><code>a = &#39;hello world!&#39;
+print(a)
+</code></pre>
+<p>2-2</p>
+<pre><code>a = &#39;hello world!&#39;
+print(a)
+a = &#39;Hello World!&#39;
+print(a)
+</code></pre>
+<p>2-3</p>
+<pre><code>name = &#39;yang chen&#39;
+print(f&#39;hello &#123;name&#125;!&#39;)
+</code></pre>
+<p>2-4</p>
+<pre><code>name = &#39;Yang chen&#39;
+print(name.lower())
+print(name.upper())
+print(name.title())
+</code></pre>
+<p>2-5</p>
+<pre><code>print(&#39;Yang Chen said, \&quot;To hesitate is to lose.\&quot;&#39;)
+</code></pre>
+<p>2-6</p>
+<pre><code>name = &#39;Yang Chen&#39;
+sentence = &#39;\&quot;To hesitate is to lose.\&quot;&#39;
+print(f&#39;&#123;name&#125; said, &#123;sentence&#125;&#39;)
+</code></pre>
+<p>2-7</p>
+<pre><code>name = &#39; yang chen &#39;
+print(name)
+print(name.lstrip())
+print(name.rstrip())
+print(name.strip())
+</code></pre>
+<p>2-8</p>
+<pre><code>print(1+7)
+print(9-1)
+print(2*4)
+print(int(16/2))
+</code></pre>
+<p>2-9/2-10</p>
+<pre><code>favourite_number = 1
+sentence = &#39;My favourite number is &#39;
+
+#下一行使用了格式化打印和三点多行注释
+&#39;&#39;&#39;
+print(f&#39;&#123;sentence&#125;&#123;favourite_number&#125;.&#39;)
+&#39;&#39;&#39;
+
+print(sentence + str(favourite_number) + &#39;.&#39;)
+</code></pre>
+<p>2-11</p>
+<pre><code>import this
+</code></pre>
+<h2 id="第3章-列表简介"><a href="#第3章-列表简介" class="headerlink" title="第3章 列表简介"></a>第3章 列表简介</h2><p>3-1</p>
+<pre><code>names = [&#39;zhang san&#39;, &#39;li si&#39;,&#39;wang wu&#39;]
+print(names[0])
+print(names[1])
+print(names[2])
+</code></pre>
+<p>3-2</p>
+<pre><code>names = [&#39;zhang san&#39;, &#39;li si&#39;,&#39;wang wu&#39;]
+print(f&#39;&#123;names[0].title()&#125;, how are you?&#39;)
+print(f&#39;&#123;names[1].title()&#125;, how are you?&#39;)
+print(f&#39;&#123;names[2].title()&#125;, how are you?&#39;)
+</code></pre>
+<p>3-3</p>
+<pre><code>vehicle = [&#39;bus&#39;, &#39;bike&#39;, &#39;car&#39;]
+print(f&#39;I go to school by &#123;vehicle[0]&#125;.&#39;)
+print(f&#39;I go to school by &#123;vehicle[1]&#125;.&#39;)
+print(f&#39;I go to school by &#123;vehicle[2]&#125;.&#39;)
+</code></pre>
+<p>3-4</p>
+<pre><code>invitation = [&#39;Zhang san&#39;,&#39;Li si&#39;,&#39;Wang wu&#39;]
+print(f&#39;I want to invite &#123;invitation[0]&#125;, &#123;invitation[1]&#125;, &#123;invitation[2]&#125; to my party.&#39;)
+</code></pre>
+<p>3-5</p>
+<pre><code>invitation = [&#39;Zhang san&#39;,&#39;Li si&#39;,&#39;Wang wu&#39;]
+
+print(f&#39;I want to invite &#123;invitation[0]&#125;, &#123;invitation[1]&#125;, &#123;invitation[2]&#125; to my party.&#39;)
+
+print(f&#39;&#123;invitation[1]&#125; can\&#39;t come to my party.&#39;)
+
+# invitation.remove(&#39;Li si&#39;)
+invitation.pop(1)
+invitation.insert(1, &#39;Yang chen&#39;)
+
+print(f&#39;I want to invite &#123;invitation[0]&#125;, &#123;invitation[1]&#125;, &#123;invitation[2]&#125; to my party.&#39;)
+</code></pre>
+<p>3-6</p>
+<pre><code>invitation = [&#39;Zhang san&#39;,&#39;Li si&#39;,&#39;Wang wu&#39;]
+print(f&#39;I want to invite &#123;invitation[0]&#125;, &#123;invitation[1]&#125;, &#123;invitation[2]&#125; to my party.&#39;)
+
+print(&#39;I find a bigger dinner table.&#39;)
+invitation.insert(0, &#39;New guest0&#39;)
+invitation.insert(2, &#39;New guest1&#39;)
+invitation.append(&#39;New guest2&#39;)
+
+print(f&#39;&#123;invitation[0]&#125;, would you like to come to my party?&#39;)
+print(f&#39;&#123;invitation[1]&#125;, would you like to come to my party?&#39;)
+print(f&#39;&#123;invitation[2]&#125;, would you like to come to my party?&#39;)
+print(f&#39;&#123;invitation[3]&#125;, would you like to come to my party?&#39;)
+print(f&#39;&#123;invitation[4]&#125;, would you like to come to my party?&#39;)
+print(f&#39;&#123;invitation[5]&#125;, would you like to come to my party?&#39;)
+</code></pre>
+<p>3-7</p>
+<pre><code>invitation = [&#39;Zhang san&#39;,&#39;Li si&#39;,&#39;Wang wu&#39;]
+print(f&#39;I want to invite &#123;invitation[0]&#125;, &#123;invitation[1]&#125;, &#123;invitation[2]&#125; to my party.&#39;)
+
+print(&#39;I find a bigger dinner table.&#39;)
+invitation.insert(0, &#39;New guest0&#39;)
+invitation.insert(2, &#39;New guest1&#39;)
+invitation.append(&#39;New guest2&#39;)
+
+print(&#39;I can only invite two guests to my party.&#39;)
+
+poped0 = invitation.pop()
+print(f&#39;Sorry &#123;poped0&#125;, I can\&#39;t invite you to my party.&#39;)
+
+poped1 = invitation.pop()
+print(f&#39;Sorry &#123;poped1&#125;, I can\&#39;t invite you to my party.&#39;)
+
+poped2 = invitation.pop()
+print(f&#39;Sorry &#123;poped2&#125;, I can\&#39;t invite you to my party.&#39;)
+
+poped3 = invitation.pop()
+print(f&#39;Sorry &#123;poped3&#125;, I can\&#39;t invite you to my party.&#39;)
+
+print(f&#39;&#123;invitation[0]&#125;, I will still invite you to my party.&#39;)
+print(f&#39;&#123;invitation[1]&#125;, I will still invite you to my party.&#39;)
+
+del invitation[0]
+del invitation[0]
+print(invitation)
+</code></pre>
+<p>3-8</p>
+<pre><code>places = [&#39;Beijing&#39;, &#39;Shanghai&#39;, &#39;Tianjin&#39;, &#39;Guangzhou&#39;, &#39;Huaiyuan&#39;]
+print(places)
+print(sorted(places))
+print(places)
+print(sorted(places, reverse = True))
+</code></pre>
+<p>3-9</p>
+<pre><code>invitation = [&#39;Zhang san&#39;,&#39;Li si&#39;,&#39;Wang wu&#39;]
+print(f&#39;I will invite &#123;len(invitation)&#125; guests to my party.&#39;)
+</code></pre>
+<p>3-10</p>
+<pre><code>创建一个列表，对其使用本章学到的所有函数.
+注意，某些函数如append()，pop()，使用时放在对象后面，如invitation.pop()，而有些放在前面，如sort(places).
+</code></pre>
+<p>3-11</p>
+<pre><code>#引发一个索引错误
+#计数时从0开始而不是1
+list = [1,2,3]
+print(list[0])
+print(list[3])
+</code></pre>
+<h2 id="第4章-操作列表"><a href="#第4章-操作列表" class="headerlink" title="第4章 操作列表"></a>第4章 操作列表</h2><p>4-1</p>
+<pre><code>pizzas = [&#39;pineapple pizza&#39;,&#39;sausage pizza&#39;,&#39;shrimp pizza&#39;]
+for pizza in pizzas:
+    print(pizza)
+
+for pizzb in pizzas:
+    print(f&#39;I like &#123;pizzb&#125;.&#39;)
+
+print(f&#39;I love &#123;pizzas[2]&#125;, I don\&#39;t like &#123;pizzas[1]&#125;, I hate &#123;pizzas[0]&#125;!&#39;)
+print(&#39;I really love pizza!&#39;)
+</code></pre>
+<p>4-2</p>
+<pre><code>#sa = similar_animals
+sa = [&#39;chicken&#39;,&#39;duck&#39;,&#39;goose&#39;]
+for s in sa:
+    print(s)
+
+for d in sa:
+    print(f&#39;&#123;d.title()&#125; would make a great pet.&#39;)
+
+print(&#39;Any of these animals would make a great pet.&#39;)
+</code></pre>
+<p>4-3</p>
+<pre><code>for integer in range(1,21):
+    print(integer)
+</code></pre>
+<p>4-4</p>
+<pre><code>million = [i for i in range(1,1000001)]
+for i in million:
+    print(i)
+#在控制台中按Ctrl+C停止打印，结尾处显示KeyboardInterrupt.
+</code></pre>
+<p>4-5</p>
+<pre><code>million = [i for i in range(1,1000001)]
+print(min(million))
+print(max(million))
+
+#计算程序运行时间
+from time import time
+
+start = time()
+print(sum(million))
+end = time()
+
+print(start)
+print(end)
+print(end - start)
+</code></pre>
+<p>4-6</p>
+<pre><code>odds = [odd for odd in range(1,20,2)]
+for odd in odds:
+    print(odd)
+</code></pre>
+<p>4-7</p>
+<pre><code>a = [i for i in range(3,31,3)]
+for i in a:
+    print(i)
+</code></pre>
+<p>4-8</p>
+<pre><code>cubes = [i**3 for i in range(1,11)]
+for i in cubes:
+    print(i)
+</code></pre>
+<p>4-9</p>
+<pre><code>cubes = [i**3 for i in range(1,11)]
+print(cubes)
+</code></pre>
+<p>4-10</p>
+<pre><code>cubes = [i**3 for i in range(1,12)]
+print(cubes)
+
+print(&#39;The first three items in the list are:&#39;)
+print(cubes[:3])
+
+print(&#39;The last three items in the list are:&#39;)
+last_three_index = len(cubes) - 3
+print(cubes[last_three_index:])
+
+#打印“中间”三个元素，判断一下“中间”
+#为了配合“中间”，将列表调整为11个元素
+def middle():
+    l = len(cubes)
+    if l % 2 == 1:
+        return int((l + 1) / 2)
+    elif l % 2 == 0:
+        return int(l / 2)
+mid = middle() - 1  #计数从0开始
+
+print(&#39;Three items from the middle of the list are:&#39;)
+print(cubes[mid - 1], cubes[mid], cubes[mid + 1])
+</code></pre>
+<p>4-11</p>
+<pre><code>pizzas = [&#39;pineapple pizza&#39;,&#39;sausage pizza&#39;,&#39;shrimp pizza&#39;]
+friend_pizzas = [&#39;pineapple pizza&#39;,&#39;sausage pizza&#39;,&#39;shrimp pizza&#39;]
+
+pizzas.append(&#39;pork pizza&#39;)
+friend_pizzas.append(&#39;beef pizza&#39;)
+
+print(&#39;My favourite pizzas are:&#39;)
+for i in pizzas:
+    print(i, end = &#39; &#39;)
+
+print(&#39;\n&#39;)
+
+print(&#39;My friend\&#39;s favourite pizzas are:&#39;)
+for j in friend_pizzas:
+    print(j, end = &#39; &#39;)
+</code></pre>
+<p>4-12</p>
+<pre><code>基本等于4-11，略
+</code></pre>
+<p>4-13</p>
+<pre><code>foods = (&#39;milk&#39;,&#39;bread&#39;,&#39;juice&#39;,&#39;steak&#39;,&#39;garlic&#39;)
+for food in foods:
+    print(food, end = &#39; &#39;)
+print(&#39;\n&#39;)
+
+try:
+    foods[3] = &#39;sausage&#39;
+except TypeError:
+    print(&#39;An error happend. Not allowed to modify tuple items.&#39;)
+
+foods = (&#39;milk&#39;,&#39;noodle&#39;,&#39;juice&#39;,&#39;sausage&#39;,&#39;garlic&#39;)
+for food in foods:
+    print(food, end = &#39; &#39;)
+</code></pre>
+<p>4-14,4-15</p>
+<pre><code>格式相关的问题，如空行、缩进、每行字符数等，大多数编辑器在默认状态下都已设置好。
+</code></pre>
+<h2 id="第5章-if语句"><a href="#第5章-if语句" class="headerlink" title="第5章 if语句"></a>第5章 if语句</h2><p>5-1</p>
+<pre><code>#条件测试，此处编写2例
+
+#0
+plus = 1 + 1
+print(plus == 2)    #True
+
+#1  极限判断，就图一乐，需要第三方库sympy
+from sympy import *
+x = symbols(&#39;x&#39;)
+f = sin(x) / x
+y = limit(f,x,0)
+print(y == 1)   #True
+</code></pre>
+<p>5-2</p>
+<pre><code>#编写给出测试的代码，只给出几例
+#0
+a = &#39;string&#39;
+b = &#39;strings&#39;
+prit(a == b)
+
+#1
+a = &#39;AbaDon&#39;
+print(a.lower() == &#39;abadon&#39;)
+
+#2 and, or
+a = 3
+print(a &gt; 0 and a &lt; 2)
+print(a &gt; 0 or a &lt; 2)
+</code></pre>
+<p>5-3</p>
+<pre><code>#pass
+alien_color = &#39;green&#39;
+if alien_color == &#39;green&#39;:
+    print(&#39;You get 5 points.&#39;)
+
+#not pass
+alien_color = &#39;red&#39;
+if alien_color == &#39;green&#39;:
+    print(&#39;You get 5 points.&#39;)
+</code></pre>
+<p>5-4</p>
+<pre><code>#5points
+alien_color = &#39;green&#39;
+if alien_color == &#39;green&#39;:
+    print(&#39;You get 5 points by killing an alien.&#39;)
+else:
+    print(&#39;You get 10 points.&#39;)
+
+#10points
+alien_color = &#39;greem&#39;
+if alien_color == &#39;green&#39;:
+    print(&#39;You get 5 points by killing an alien.&#39;)
+else:
+    print(&#39;You get 10 points.&#39;)
+</code></pre>
+<p>5-5</p>
+<pre><code>#只写一个版本
+alien_color = &#39;green&#39;
+if alien_color == &#39;green&#39;:
+    print(&#39;You get 5 points.&#39;)
+elif alien_color == &#39;yellow&#39;:
+    print(&#39;You get 10 points.&#39;)
+elif alien_color == &#39;red&#39;:
+    print(&#39;You get 15 points.&#39;)
+</code></pre>
+<p>5-6</p>
+<pre><code>age = 1
+#age = int(input(&#39;Enter your age:&#39;))
+if age &lt; 2:
+    print(&#39;I am a baby.&#39;)
+elif 2 &lt;= age &lt; 4:
+    print(&#39;I am learning walking.&#39;)
+elif 4 &lt;= age &lt; 13:
+    print(&#39;I am a child.&#39;)
+elif 13 &lt;= age &lt; 20:
+    print(&#39;I am teen.&#39;)
+elif 20 &lt;= age &lt; 65:
+    print(&#39;I am an adult.&#39;)
+elif age &gt;= 65:
+    print(&#39;I am an old man.&#39;)
+</code></pre>
+<p>5-7</p>
+<pre><code>favourite_fruits = [&#39;apple&#39;,&#39;banana&#39;,&#39;orange&#39;]
+if &#39;apple&#39; in favourite_fruits:
+    print(&#39;You really like apples.&#39;)
+if &#39;watermelon&#39; in favourite_fruits:
+    print(&#39;You really like watermelons.&#39;)
+.
+.
+.
+</code></pre>
+<p>5-8</p>
+<pre><code>users = [&#39;admin&#39;,&#39;abadon&#39;,&#39;bob&#39;,&#39;cake&#39;,&#39;david&#39;]
+for user in users:
+    if user == &#39;admin&#39;:
+        print(&#39;Hello admin, would you like to see a status report?&#39;)
+    else:
+        print(f&#39;Hello &#123;user&#125;, thank you for logging in.&#39;)
+</code></pre>
+<p>5-9</p>
+<pre><code>users = [&#39;admin&#39;,&#39;abadon&#39;,&#39;bob&#39;,&#39;cake&#39;,&#39;david&#39;]
+if users:
+    for user in users:
+        if user == &#39;admin&#39;:
+            print(&#39;Hello admin, would you like to see a status report?&#39;)
+        else:
+            print(f&#39;Hello &#123;user&#125;, thank you for logging in.&#39;)    
+else:
+    print(&#39;We need to find some users.&#39;)
+</code></pre>
+<p>5-10</p>
+<pre><code>current_users = [&#39;admin&#39;,&#39;abadon&#39;,&#39;bob&#39;,&#39;cake&#39;,&#39;david&#39;]
+new_users = [&#39;zhao&#39;,&#39;qian&#39;,&#39;abadon&#39;,&#39;bob&#39;,&#39;lee&#39;]
+for new_user in new_users:
+    if new_user in current_users:
+        print(f&#39;The name \&quot;&#123;new_user&#125;\&quot; is in use.&#39;)
+    else:
+        print(f&#39;The name \&quot;&#123;new_user&#125;\&quot; is available.&#39;)
+</code></pre>
+<p>5-11</p>
+<pre><code>number = [1,2,3,4,5,6,7,8,9]
+for num in number:
+    if num == 1:
+        print(&#39;1st&#39;)
+    elif num == 2:
+        print(&#39;2nd&#39;)
+    elif num == 3:
+        print(&#39;3rd&#39;)
+    else:
+        print(f&#39;&#123;num&#125;th&#39;)
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/28/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/12/28/myqr/" rel="next" title="使用MyQR创建二维码">
+      使用MyQR创建二维码 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%8F%98%E9%87%8F%E5%92%8C%E7%AE%80%E5%8D%95%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">第2章 变量和简单数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC3%E7%AB%A0-%E5%88%97%E8%A1%A8%E7%AE%80%E4%BB%8B"><span class="nav-number">3.</span> <span class="nav-text">第3章 列表简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC4%E7%AB%A0-%E6%93%8D%E4%BD%9C%E5%88%97%E8%A1%A8"><span class="nav-number">4.</span> <span class="nav-text">第4章 操作列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-if%E8%AF%AD%E5%8F%A5"><span class="nav-number">5.</span> <span class="nav-text">第5章 if语句</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YangChen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangChen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ic_public_file_filled.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ic_public_file_filled.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="本篇包括6-10章练习代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《python编程：从入门到实践》练习题代码示例6-10章">
+<meta property="og:url" content="http://example.com/2022/01/03/6-10ch/index.html">
+<meta property="og:site_name" content="Yc-Official">
+<meta property="og:description" content="本篇包括6-10章练习代码。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-03T14:53:05.880Z">
+<meta property="article:modified_time" content="2022-03-28T14:01:26.301Z">
+<meta property="article:author" content="YangChen">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/01/03/6-10ch/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>《python编程：从入门到实践》练习题代码示例6-10章 | Yc-Official</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yc-Official</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Personal Website</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/03/6-10ch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YangChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yc-Official">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《python编程：从入门到实践》练习题代码示例6-10章
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-03 22:53:05" itemprop="dateCreated datePublished" datetime="2022-01-03T22:53:05+08:00">2022-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-28 22:01:26" itemprop="dateModified" datetime="2022-03-28T22:01:26+08:00">2022-03-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>本篇包括6-10章练习代码。</p>
+<span id="more"></span>
+
+<h2 id="第6章-字典"><a href="#第6章-字典" class="headerlink" title="第6章 字典"></a>第6章 字典</h2><p>6-1</p>
+<pre><code>info = &#123;
+    &#39;first_name&#39;:&#39;chen&#39;,
+    &#39;last_name&#39;:&#39;yang&#39;,
+    &#39;age&#39;:&#39;18&#39;,
+    &#39;city&#39;:&#39;bb&#39;
+    &#125;
+for key,value in info.items():
+    print(f&#39;&#123;key&#125;:&#123;value&#125;&#39;)
+</code></pre>
+<p>6-2</p>
+<pre><code>numbers = &#123;
+    &#39;zhangsan&#39;:1,
+    &#39;lisi&#39;:2,
+    &#39;wangwu&#39;:3,
+    &#39;mazi&#39;:4,
+    &#39;shiye&#39;:5
+&#125;
+for key,value in numbers.items():
+    print(f&#39;&#123;key.title()&#125; likes number &#123;value&#125;.&#39;)
+</code></pre>
+<p>6-3</p>
+<pre><code>words = &#123;
+    &#39;print&#39;:&#39;show info in the terminal&#39;,
+    &#39;for&#39;:&#39;loop&#39;,
+    &#39;def&#39;:&#39;create a function&#39;,
+    &#39;import&#39;:&#39;enable packages&#39;,
+    &#39;main&#39;:&#39;the program body function&#39;
+&#125;
+for key,value in words.items():
+    print(f&#39;&#123;key&#125;: &#123;value&#125;.&#39;)
+</code></pre>
+<p>6-4</p>
+<pre><code>#同6-3
+</code></pre>
+<p>6-5</p>
+<pre><code>r_c = &#123;
+    &#39;nile&#39;:&#39;egypt&#39;,
+    &#39;changjiang&#39;:&#39;china&#39;,
+    &#39;mississippi&#39;:&#39;usa&#39;
+&#125;
+for key in r_c.keys():
+    print(key)
+for value in r_c.values():
+    print(value)
+for key,value in r_c.items():
+    print(f&#39;&#123;key.title()&#125; river runs through &#123;value.title()&#125;.&#39;)
+</code></pre>
+<p>6-6</p>
+<pre><code>favourite_languages = &#123;
+    &#39;zhangsan&#39;:&#39;python&#39;,
+    &#39;lisi&#39;:&#39;java&#39;,
+    &#39;wangwu&#39;:&#39;php&#39;
+&#125;
+people = [&#39;zhangsan&#39;,&#39;lisi&#39;,&#39;wangmazi&#39;,&#39;wangwu&#39;]
+for person in people:
+    if person in favourite_languages.keys():
+        print(f&#39;&#123;person.title()&#125;\&#39;s favourite language&#39;\
+        &#39; is &#123;favourite_languages[person]&#125;.&#39;)
+    else:
+        print(f&#39;&#123;person.title()&#125;, would you please&#39;\
+        &#39; tell us your favourite lanugage?&#39;)
+</code></pre>
+<p>6-7</p>
+<pre><code>info0 = &#123;
+    &#39;first_name&#39;:&#39;chen&#39;,
+    &#39;last_name&#39;:&#39;yang&#39;,
+    &#39;age&#39;:&#39;18&#39;,
+    &#39;city&#39;:&#39;bb&#39;
+&#125;
+
+info1 = &#123;
+    &#39;first_name&#39;:&#39;san&#39;,
+    &#39;last_name&#39;:&#39;zhang&#39;,
+    &#39;age&#39;:&#39;20&#39;,
+    &#39;city&#39;:&#39;bj&#39;
+&#125;
+
+info2 = &#123;
+    &#39;first_name&#39;:&#39;si&#39;,
+    &#39;last_name&#39;:&#39;li&#39;,
+    &#39;age&#39;:&#39;18&#39;,
+    &#39;city&#39;:&#39;aa&#39;
+&#125;
+
+people = [info0,info1,info2]
+
+for person in people:
+    for key,value in person.items():
+        print(f&#39;&#123;key&#125;: &#123;value&#125;&#39;)
+    print(&#39;\r&#39;)
+</code></pre>
+<p>6-8</p>
+<pre><code>cat = &#123;
+    &#39;species&#39;:&#39;cat&#39;,
+    &#39;master&#39;:&#39;Tom&#39;,
+    &#39;colour&#39;:&#39;blue-grey&#39;
+&#125;
+mouse = &#123;
+    &#39;species&#39;:&#39;mouse&#39;,
+    &#39;master&#39;:&#39;Jerry&#39;,
+    &#39;colour&#39;:&#39;brown-grey&#39;
+&#125;
+
+pets = [cat,mouse]
+
+for pet in pets:
+    for key,value in pet.items():
+        print(f&#39;&#123;key&#125;: &#123;value&#125;&#39;)
+    print(&#39;\r&#39;)
+</code></pre>
+<p>6-9</p>
+<pre><code>favourite_places = &#123;
+    &#39;zhangsan&#39;:[&#39;beijing&#39;,&#39;shanghai&#39;],
+    &#39;lisi&#39;:[&#39;tianjin&#39;,&#39;shenzhen&#39;]
+&#125;
+
+for person,places in favourite_places.items():
+    print(f&#39;&#123;person.title()&#125;\&#39;s favourite places are:&#39;)
+    for place in places:
+        print(f&#39;- &#123;place&#125;&#39;)
+</code></pre>
+<p>6-10</p>
+<pre><code>favourite_numbers = &#123;
+    &#39;zhangsan&#39;:[1,2],
+    &#39;lisi&#39;:[3,4],
+    &#39;wangwu&#39;:[5,6]
+&#125;
+
+for person,numbers in favourite_numbers.items():
+    print(f&#39;&#123;person.title()&#125;\&#39;s favourite numbers are:&#39;)
+    for number in numbers:
+        print(number)
+    print(&#39;\r&#39;)
+</code></pre>
+<p>6-11</p>
+<pre><code>cities = &#123;
+    &#39;Beijing&#39;:&#123;
+        &#39;country&#39;:&#39;China&#39;,
+        &#39;population&#39;:&#39;popubj&#39;,
+        &#39;fact&#39;:&#39;The Great Wall is there.&#39;
+    &#125;,
+    &#39;Ner York&#39;:&#123;
+        &#39;country&#39;:&#39;USA&#39;,
+        &#39;population&#39;:&#39;popuny&#39;,
+        &#39;fact&#39;:&#39;It is one of the most modern cities in the world.&#39;
+    &#125;,
+    &#39;Moscow&#39;:&#123;
+        &#39;country&#39;:&#39;Russia&#39;,
+        &#39;population&#39;:&#39;popumc&#39;,
+        &#39;fact&#39;:&#39;There was a terrible war there.&#39;
+    &#125;
+&#125;
+for city,infos in cities.items():
+    print(f&#39;&#123;city&#125; is in &#123;infos[&quot;country&quot;]&#125;.&#39;)
+    print(f&#39;&#123;city&#125; has a population of &#123;infos[&quot;population&quot;]&#125;.&#39;)
+    print(f&#39;&#123;infos[&quot;fact&quot;]&#125;&#39;)
+    print(&#39;\r&#39;)
+</code></pre>
+<p>6-12</p>
+<pre><code>#略
+</code></pre>
+<h2 id="第7章-用户输入和while循环"><a href="#第7章-用户输入和while循环" class="headerlink" title="第7章 用户输入和while循环"></a>第7章 用户输入和while循环</h2><p>7-1</p>
+<pre><code>car = input(&#39;Enter what type car you want to hire: &#39;)
+print(f&#39;Let me see if I can find you a &#123;car&#125;.&#39;)
+</code></pre>
+<p>7-2</p>
+<pre><code>ques = int(input(&#39;How many people, please?&#39;))
+
+if ques &gt; 8:
+    print(&#39;Sorry, we don\&#39; have such a vacancy now.&#39;)
+else:
+    print(&#39;Follow me, please.&#39;)
+</code></pre>
+<p>7-3</p>
+<pre><code>num = int(input(&#39;Enter a number: &#39;))
+if num % 10 == 0:
+    print(f&#39;&#123;num&#125; is an integral multiple of 10.&#39;)    
+else:
+    print(f&#39;&#123;num&#125; is not integral multiple of 10.&#39;)
+</code></pre>
+<p>7-4</p>
+<pre><code>while True:
+    topping = input(&#39;Enter what topping you want on your pizza: &#39;)
+    if topping == &#39;quit&#39;:
+        break
+    else:
+        print(f&#39;We will add &#123;topping&#125; to your pizza.&#39;)
+</code></pre>
+<p>7-5</p>
+<pre><code>while True:
+    age = input(&#39;How old are you?\nEnter &quot;quit&quot; when you are finished: &#39;)
+    if age == &#39;quit&#39;:
+        break
+    else:
+        if age &lt; 3:
+            print(&#39;You get in free!&#39;)
+        elif 3 &lt;= age &lt; 12:
+            print(&#39;Your ticket is 10rmb.&#39;)
+        elif age &gt;= 12:
+            print(&#39;Your ticket is 15rmb.&#39;)
+    
+</code></pre>
+<p>7-6</p>
+<pre><code>#用一下标志
+active = True
+while active:
+    age = input(&#39;How old are you?\nEnter &quot;quit&quot; when you are finished: &#39;)
+    if age == &#39;quit&#39;:
+        active = False
+    else:
+        age = int(age)
+        if age &lt; 3:
+            print(&#39;You get in free!&#39;)
+        elif 3 &lt;= age &lt; 12:
+            print(&#39;Your ticket is 10rmb.&#39;)
+        elif age &gt;= 12:
+            print(&#39;Your ticket is 15rmb.&#39;)
+</code></pre>
+<p>7-7</p>
+<pre><code>#在cmd中运行循环程序可以按ctrl+c结束循环
+#内嵌终端的编辑器/IDE可能需要手动关闭终端，如vscode
+while True:
+    print(&#39;Hello world!&#39;)
+</code></pre>
+<p>7-8</p>
+<pre><code>sandwich_orders = [&#39;chicken sandwich&#39;,&#39;sausage sandwich&#39;,&#39;fruit sandwich&#39;]
+finished_sandwiches = []
+
+while sandwich_orders:
+    making_sandwich = sandwich_orders.pop()
+    finished_sandwiches.append(making_sandwich)
+    print(f&#39;I am making your &#123;making_sandwich&#125;.&#39;)
+
+print(&#39;\nHere are your sandwiches:&#39;)
+for sandwich in finished_sandwiches:
+    print(sandwich)
+</code></pre>
+<p>7-9</p>
+<pre><code>sandwich_orders = [
+    &#39;chicken sandwich&#39;,
+    &#39;pastrami&#39;,
+    &#39;pastrami&#39;,
+    &#39;pastrami&#39;]
+finished_sandwiches = []
+
+print(&#39;The pastrami is sold out.\n&#39;)
+
+while &#39;pastrami&#39; in sandwich_orders:
+    sandwich_orders.remove(&#39;pastrami&#39;)
+
+while sandwich_orders:
+    making_sandwich = sandwich_orders.pop()
+    finished_sandwiches.append(making_sandwich)
+    print(f&#39;I am making your &#123;making_sandwich&#125;.&#39;)
+
+print(&#39;\nHere are your sandwiches:&#39;)
+for sandwich in finished_sandwiches:
+    print(sandwich)
+</code></pre>
+<p>7-10</p>
+<pre><code>print(&#39;If you get a vocation of 10 days, where would you like to visit?&#39;)
+places = []
+
+while True:
+    place = input(&#39;Enter where you want to go(Enter &quot;quit&quot; when you are done): &#39;)
+    if place == &#39;quit&#39;:
+        break
+    else:
+        places.append(place)
+
+print(&#39;\nHere are places you want to travel:\r&#39;)
+for place in places:
+    print(place,end=&#39; &#39;)
+
+#本章的输入都没设置重复检测
+</code></pre>
+<h2 id="第8章-函数"><a href="#第8章-函数" class="headerlink" title="第8章 函数"></a>第8章 函数</h2><p>8-1</p>
+<pre><code>def display_message():
+    print(&#39;I learn how to use function in python in this chapter.&#39;)
+
+display_message()
+</code></pre>
+<p>8-2</p>
+<pre><code>def favourite_book(title):
+    print(f&#39;One of my favourite books is &#123;title.title()&#125;.&#39;)
+
+favourite_book(&#39;three body&#39;)
+</code></pre>
+<p>8-3</p>
+<pre><code>make_shirt(size,words):
+    print(&#39;This a T-shirt of &#123;size&#125; size with &quot;&#123;words&#125;&quot; on the back.&#39;)
+
+make_shirt(XXL,&#39;Foreigner comes&#39;)
+make_shirt(words=&#39;Foreigner leaves&#39;,size=&#39;L&#39;)
+</code></pre>
+<p>8-4</p>
+<pre><code>def make_shirt(words=&#39;I love Python&#39;,size=&#39;big&#39;):
+    print(f&#39;This is a &#123;size&#125; size T-shirt with &quot;&#123;words&#125;&quot; on the front.&#39;)
+
+make_shirt()
+make_shirt(size=&#39;medium&#39;)
+make_shirt(words=&#39;Python is the best.&#39;)
+</code></pre>
+<p>8-5</p>
+<pre><code>def describe_city(name,country=&#39;China&#39;):
+    print(f&#39;&#123;name.title()&#125; is in &#123;country&#125;.&#39;)
+
+describe_city(name=&#39;beijing&#39;)
+describe_city(name=&#39;shanghai&#39;)
+describe_city(name=&#39;new york&#39;,country=&#39;the USA&#39;)
+</code></pre>
+<p>8-6</p>
+<pre><code>def city_country(name,country):
+    output = f&#39;&#123;name.title()&#125;,&#123;country.title()&#125;&#39;
+    return output
+    # return name.title() + &#39;,&#39; + country.title()
+
+print(city_country(&#39;beijing&#39;,&#39;China&#39;))
+print(city_country(&#39;shanghai&#39;,&#39;China&#39;))
+print(city_country(&#39;tokyo&#39;,&#39;Japan&#39;))
+</code></pre>
+<p>8-7</p>
+<pre><code>def make_album(singer,title,tracks=0):
+    album_info = &#123;
+        &#39;singer&#39;: singer.title(),
+        &#39;title&#39;: title.title()
+    &#125;
+    
+    if tracks:
+        album_info[&#39;tracks&#39;] = tracks
+    
+    return album_info
+
+print(make_album(&#39;jay chou&#39;,&#39;bedtime stories&#39;,10))
+print(make_album(&#39;adele&#39;,&#39;30&#39;))
+print(make_album(&#39;adele&#39;,&#39;30&#39;,10))
+</code></pre>
+<p>8-8</p>
+<pre><code>def make_album(singer,title,tracks=0):
+    album_info = &#123;
+        &#39;singer&#39;: singer.title(),
+        &#39;title&#39;: title.title()
+    &#125;
+    
+    if tracks:
+        album_info[&#39;tracks&#39;] = tracks
+    
+    return album_info
+
+while True:
+    print(&#39;Use &quot;quit&quot; to end at any time.&#39;)
+
+    singer = input(&#39;Who is your favourite singer?&#39;)
+    if singer == &#39;quit&#39;:
+        break
+
+    title = input(&#39;Which album of the singer do you like best?&#39;)
+    if title == &#39;quit&#39;:
+        break
+    
+    print(make_album(singer,title),&#39;\n&#39;)
+</code></pre>
+<p>8-9</p>
+<pre><code>magicians = [&#39;Liu Qian&#39;,&#39;David Copperfield&#39;,&#39;Elvin Jhonson&#39;]
+
+def show_magicians(magicians):
+    for magician in magicians:
+        print(magician)
+
+show_magicians(magicians)
+</code></pre>
+<p>8-10</p>
+<pre><code>&#39;&#39;&#39;
+使用for循环，先造一个目标列表，然后覆盖原列表
+在官方的参考程序中，思路是使用while循环，弹出原始元素，改动后放入新列表，再将新列表元素加到原列表
+所以8-11大致可以用这个程序做
+&#39;&#39;&#39;
+
+magicians = [&#39;Liu Qian&#39;,&#39;David Copperfield&#39;,&#39;Elvin Jhonson&#39;]
+great_magicians = []
+
+def make_great(magicians):
+    for magician in magicians:
+        great_magician = &#39;the Great &#39; + magician
+        great_magicians.append(great_magician)
+
+def show_magicians(magicians):
+    for magician in magicians:
+        print(magician)
+
+make_great(magicians)
+magicians = great_magicians
+show_magicians(magicians)
+
+&#39;&#39;&#39;
+在函数中修改列表后，在函数外打印列表，显示的仍是原列表
+可能涉及global变量
+&#39;&#39;&#39;
+</code></pre>
+<p>8-11</p>
+<pre><code>magicians = [&#39;Liu Qian&#39;,&#39;David Copperfield&#39;,&#39;Elvin Jhonson&#39;]
+great_magicians = []
+
+def make_great(magicians):
+    global copy
+    copy = magicians[:]
+
+    while copy:
+        great_magician = &#39;the Great &#39; + copy.pop()
+        great_magicians.append(great_magician)
+    
+    for great_magician in great_magicians:
+        copy.append(great_magician)
+
+def show_magicians(magicians):
+    for magician in magicians:
+        print(magician)
+
+make_great(magicians)
+show_magicians(copy)
+show_magicians(magicians)    
+show_magicians(great_magicians)
+</code></pre>
+<p>8-12</p>
+<pre><code>def sandwich_toppings(*toppings):
+    for topping in toppings:
+        print(f&#39;Adding &#123;topping&#125; to your sandwich!&#39;)
+    print(&#39;Your sandwich is done.&#39;)
+
+sandwich_toppings(&#39;beef&#39;,&#39;cheese&#39;,&#39;pork&#39;)
+sandwich_toppings(&#39;beef&#39;)
+sandwich_toppings(&#39;beef&#39;,&#39;pork&#39;)
+
+&#39;&#39;&#39;
+*号将任意个数参数传给函数：单*将参数以元组格式传入，双*以字典形式传入
+单*还能提取列表元素，如本例
+&#39;&#39;&#39;
+</code></pre>
+<p>8-13</p>
+<pre><code>def build_profile(first,last,**user_infos):
+    infos = &#123;&#125;
+    infos[&#39;first_name&#39;] = first
+    infos[&#39;last_name&#39;] = last
+    for key,value in user_infos.items():
+        infos[key] = value
+    return infos
+
+output = build_profile(&#39;Chain&#39;,&#39;Young&#39;,age=18,city=&#39;Beijing&#39;,favourite_food=&#39;Chicken&#39;)
+print(output)
+</code></pre>
+<p>8-14</p>
+<pre><code>def show_car(manufacturer,type,**other_infos):
+    infos = &#123;&#125;
+    infos[&#39;manufacturer&#39;] = manufacturer
+    infos[&#39;type&#39;] = type
+    for key,value in other_infos.items():
+        infos[key] = value
+    return infos
+
+car = show_car(&#39;Aodi&#39;,&#39;A6&#39;,colour=&#39;red&#39;,year=2004)
+print(car)
+</code></pre>
+<p>8-15</p>
+<pre><code># 导入另一个文件的函数
+
+# some_functions.py
+def function0():
+    print(&#39;Using function0 from another .py file.&#39;)
+
+def function1():
+    print(&#39;Using function1 from another .py file.&#39;)
+
+# test.py
+from some_functions import function0 as f0
+from some_functions import function1 as f1
+
+def use_function0():
+    f0()
+
+def use_function1():
+    f1()
+
+use_function0()
+use_function1()
+</code></pre>
+<p>8-16</p>
+<pre><code>#略
+</code></pre>
+<p>8-17</p>
+<pre><code>#略
+</code></pre>
+<h2 id="第9章-类"><a href="#第9章-类" class="headerlink" title="第9章 类"></a>第9章 类</h2><p>9-1</p>
+<pre><code>class Restaurant():
+    def __init__(self,name,cuisine_type):
+        self.name = name
+        self.type = cuisine_type
+    
+    def describe_restaurant(self):
+        print(f&#39;It is a &#123;self.type&#125; restaurant called &#123;self.name.title()&#125;.&#39;)
+
+    def open_restaurant(self):
+        print(f&#39;&#123;self.name.title()&#125; is open.&#39;)
+
+shaxian = Restaurant(&#39;Shaxian Xiaochi&#39;,&#39;Chinsee food&#39;)
+shaxian.describe_restaurant()
+shaxian.open_restaurant()
+</code></pre>
+<p>9-2</p>
+<pre><code>class Restaurant():
+    def __init__(self,name,cuisine_type):
+        self.name = name
+        self.type = cuisine_type
+
+    def describe_restaurant(self):
+        print(f&#39;It is a &#123;self.type&#125; restaurant called &#123;self.name.title()&#125;.&#39;)
+
+RiceTire = Restaurant(&#39;RiceCream&#39;,&#39;Western food&#39;)
+Shaxian = Restaurant(&#39;Shaxian Xiaochi&#39;,&#39;Chinsee food&#39;)
+Kfc = Restaurant(&#39;KFC&#39;,&#39;Western fast food&#39;)
+
+RiceTire.describe_restaurant()
+Shaxian.describe_restaurant()
+Kfc.describe_restaurant()
+</code></pre>
+<p>9-3</p>
+<pre><code>class User():
+    def __init__(self,first_name,last_name,age,gender):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.gender = gender
+
+    def describe_user(self):
+        infos = &#123;&#125;
+        infos[&#39;first_name&#39;] = self.first_name
+        infos[&#39;last_name&#39;] = self.last_name
+        infos[&#39;age&#39;] = self.age
+        infos[&#39;gender&#39;] = self.gender
+        
+        print(infos)
+
+    def greet_user(self):
+        print(f&#39;Hello, &#123;self.first_name.title()&#125; &#123;self.last_name.title()&#125;.&#39;)
+
+zhangsan = User(&#39;san&#39;,&#39;zhang&#39;,18,&#39;male&#39;)
+zhangsan.describe_user()
+zhangsan.greet_user()
+#其他实例略
+</code></pre>
+<p>9-4</p>
+<pre><code>class Restaurant():
+    def __init__(self,name,cuisine_type,number_served = 0):
+        self.name = name
+        self.type = cuisine_type
+        self.number_served = number_served
+    
+    def describe_restaurant(self):
+        print(f&#39;It is a &#123;self.type&#125; restaurant called &#123;self.name.title()&#125;.&#39;)
+
+    def open_restaurant(self):
+        print(f&#39;&#123;self.name.title()&#125; is open.&#39;) 
+
+    def set_number_served(self,num):
+        self.number_served = num
+    
+    def increment_number_served(self,increment_number):
+        self.number_served += increment_number
+
+restaurant = Restaurant(&#39;Shaxian Xiaochi&#39;,&#39;Chinese food&#39;)
+print(restaurant.number_served)
+
+restaurant.number_served = 1
+print(restaurant.number_served)
+
+restaurant.set_number_served(2)
+print(restaurant.number_served)
+
+restaurant.increment_number_served(10)
+print(restaurant.number_served)
+</code></pre>
+<p>9-5</p>
+<pre><code>class User():
+    def __init__(self,first_name,last_name,age,gender,login_attempts):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.gender = gender
+        self.login_attempts = login_attempts
+
+    def describe_user(self):
+        infos = &#123;&#125;
+        infos[&#39;first_name&#39;] = self.first_name
+        infos[&#39;last_name&#39;] = self.last_name
+        infos[&#39;age&#39;] = self.age
+        infos[&#39;gender&#39;] = self.gender
+        
+        print(infos)
+
+    def greet_user(self):
+        print(f&#39;Hello, &#123;self.first_name.title()&#125; &#123;self.last_name.title()&#125;.&#39;)
+
+    def increment_login_attempts(self):
+        self.login_attempts += 1
+
+    def reset_login_attempts(self):
+        self.login_attempts = 0
+
+zhangsan = User(&#39;san&#39;,&#39;zhang&#39;,18,&#39;male&#39;,0)
+print(zhangsan.login_attempts)
+zhangsan.increment_login_attempts()
+print(zhangsan.login_attempts)
+zhangsan.reset_login_attempts()
+print(zhangsan.login_attempts)
+</code></pre>
+<p>9-6</p>
+<pre><code>class Restaurant():
+    def __init__(self,name,cuisine_type):
+        self.name = name
+        self.cuisine_type = cuisine_type
+    
+    def describe_restaurant(self):
+        print(f&#39;It is a &#123;self.type&#125; restaurant called &#123;self.name.title()&#125;.&#39;)
+
+    def open_restaurant(self):
+        print(f&#39;&#123;self.name.title()&#125; is open.&#39;)
+    
+class IceCreamStand(Restaurant):
+    def __init__(self,name,flavors,cuisine_type = &#39;ice cream&#39;):
+        super().__init__(name,cuisine_type)
+        self.flavors = flavors
+
+    def show_flavors(self):
+        print(&#39;We serve the following ice creams:&#39;)
+        for i in self.flavors:
+            print(f&#39;-&#123;i.title()&#125; ice cream.&#39;)
+    
+ics = IceCreamStand(&#39;Fire cream&#39;,flavors = [&#39;choco&#39;,&#39;apple&#39;,&#39;banana&#39;])
+ics.show_flavors()
+print(ics.cuisine_type)
+</code></pre>
+<p>9-7</p>
+<pre><code>class User():
+    def __init__(self,first_name,last_name,age,gender):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.gender = gender
+
+
+    def describe_user(self):
+        infos = &#123;&#125;
+        infos[&#39;first_name&#39;] = self.first_name
+        infos[&#39;last_name&#39;] = self.last_name
+        infos[&#39;age&#39;] = self.age
+        infos[&#39;gender&#39;] = self.gender
+
+        print(infos)
+
+    def greet_user(self):
+        print(f&#39;Hello, &#123;self.first_name.title()&#125; &#123;self.last_name.title()&#125;.&#39;)
+
+class Admin(User):
+    def __init__(self,first_name,last_name,age,gender,privileges): # can delete privileges
+        super().__init__(first_name,last_name,age,gender)
+        self.privileges = privileges
+
+    def show_privileges(self):
+        print(&#39;Admin user can:&#39;)
+        for i in self.privileges:
+            print(f&#39;- &#123;i&#125;&#39;)
+
+privileges = [&#39;can add post&#39;,&#39;can delete post&#39;,&#39;can ban user&#39;]
+admin = Admin(&#39;san&#39;,&#39;zhang&#39;,18,&#39;male&#39;,privileges = privileges) # delete this privileges at the same time
+admin.show_privileges()
+</code></pre>
+<p>9-8</p>
+<pre><code>class User():
+    def __init__(self,first_name,last_name,age,gender):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.gender = gender
+
+
+    def describe_user(self):
+        infos = &#123;&#125;
+        infos[&#39;first_name&#39;] = self.first_name
+        infos[&#39;last_name&#39;] = self.last_name
+        infos[&#39;age&#39;] = self.age
+        infos[&#39;gender&#39;] = self.gender
+
+        print(infos)
+
+    def greet_user(self):
+        print(f&#39;Hello, &#123;self.first_name.title()&#125; &#123;self.last_name.title()&#125;.&#39;)
+
+class Admin(User):
+    def __init__(self,first_name,last_name,age,gender):
+        super().__init__(first_name,last_name,age,gender)
+        self.privileges = Privileges()
+
+
+class Privileges():
+    def __init__(self):
+        self.privileges = [&#39;can add post&#39;,&#39;can delete post&#39;,&#39;can ban user&#39;]
+
+    def show_privileges(self):
+        print(&#39;Admin user can:&#39;)
+        for i in self.privileges:
+            print(f&#39;- &#123;i&#125;&#39;)
+
+admin = Admin(&#39;san&#39;,&#39;zhang&#39;,18,&#39;male&#39;)
+admin.privileges.show_privileges()
+
+# 使用子类时，子类的属性是否写进__init__中看代码结构而定
+# 写入后须在定义实例时加参数，不写则需手动添加实例.xxxx = xxxx
+</code></pre>
+<p>9-9</p>
+<pre><code># 本书复杂的代码为了节约篇幅，会把基础代码省略掉再添加新代码
+# 这里偷个懒，放上官方答案，我就不重写了
+class Car():
+&quot;&quot;&quot;A simple attempt to represent a car.&quot;&quot;&quot;
+
+def __init__(self, manufacturer, model, year):
+    &quot;&quot;&quot;Initialize attributes to describe a car.&quot;&quot;&quot;
+    self.manufacturer = manufacturer
+    self.model = model
+    self.year = year
+    self.odometer_reading = 0
+    
+def get_descriptive_name(self):
+    &quot;&quot;&quot;Return a neatly formatted descriptive name.&quot;&quot;&quot;
+    long_name = str(self.year) + &#39; &#39; + self.manufacturer + &#39; &#39; + self.model
+    return long_name.title()
+
+def read_odometer(self):
+    &quot;&quot;&quot;Print a statement showing the car&#39;s mileage.&quot;&quot;&quot;
+    print(&quot;This car has &quot; + str(self.odometer_reading) + &quot; miles on it.&quot;)
+    
+def update_odometer(self, mileage):
+    &quot;&quot;&quot;
+    Set the odometer reading to the given value.
+    Reject the change if it attempts to roll the odometer back.
+    &quot;&quot;&quot;
+    if mileage &gt;= self.odometer_reading:
+        self.odometer_reading = mileage
+    else:
+        print(&quot;You can&#39;t roll back an odometer!&quot;)
+
+def increment_odometer(self, miles):
+    &quot;&quot;&quot;Add the given amount to the odometer reading.&quot;&quot;&quot;
+    self.odometer_reading += miles
+
+class Battery():
+    &quot;&quot;&quot;A simple attempt to model a battery for an electric car.&quot;&quot;&quot;
+
+    def __init__(self, battery_size=60):
+        &quot;&quot;&quot;Initialize the batteery&#39;s attributes.&quot;&quot;&quot;
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        &quot;&quot;&quot;Print a statement describing the battery size.&quot;&quot;&quot;
+        print(&quot;This car has a &quot; + str(self.battery_size) + &quot;-kWh battery.&quot;)
+
+        
+    def get_range(self):
+        &quot;&quot;&quot;Print a statement about the range this battery provides.&quot;&quot;&quot;
+        if self.battery_size == 60:
+            range = 140
+        elif self.battery_size == 85:
+            range = 185
+            
+        message = &quot;This car can go approximately &quot; + str(range)
+        message += &quot; miles on a full charge.&quot;
+        print(message)
+
+    def upgrade_battery(self):
+        &quot;&quot;&quot;Upgrade the battery if possible.&quot;&quot;&quot;
+        if self.battery_size == 60:
+            self.battery_size = 85
+            print(&quot;Upgraded the battery to 85 kWh.&quot;)
+        else:
+            print(&quot;The battery is already upgraded.&quot;)
+    
+        
+class ElectricCar(Car):
+    &quot;&quot;&quot;Models aspects of a car, specific to electric vehicles.&quot;&quot;&quot;
+
+    def __init__(self, manufacturer, model, year):
+        &quot;&quot;&quot;
+        Initialize attributes of the parent class.
+        Then initialize attributes specific to an electric car.
+        &quot;&quot;&quot;
+        super().__init__(manufacturer, model, year)
+        self.battery = Battery()
+
+
+print(&quot;Make an electric car, and check the battery:&quot;)
+my_tesla = ElectricCar(&#39;tesla&#39;, &#39;model s&#39;, 2016)
+my_tesla.battery.describe_battery()
+
+print(&quot;\nUpgrade the battery, and check it again:&quot;)
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+
+print(&quot;\nTry upgrading the battery a second time.&quot;)
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.describe_battery()
+</code></pre>
+<p>9-10<br>9-11<br>9-12</p>
+<pre><code># 略
+</code></pre>
+<p>9-13</p>
+<pre><code>from collections import OrderedDict
+
+words = OrderedDict()
+words[&#39;print&#39;] = &#39;display info in the terminal&#39;
+words[&#39;for&#39;] = &#39;loop&#39;
+words[&#39;def&#39;] = &#39;creat a function&#39;
+
+for key,value in words.items():
+    print(f&#39;&#123;key.title()&#125;: &#123;value&#125;.&#39;)
+</code></pre>
+<p>9-14</p>
+<pre><code>from random import randint
+class Die():
+    def __init__(self,sides=6):
+        self.sides = sides
+
+    def roll_die(self):
+        x = randint(1,self.sides)
+        print(x)
+
+print(&#39;6 sides:&#39;)
+die6 = Die()
+for i in range(10):
+    die6.roll_die()
+
+print(&#39;\n10 sides:&#39;)
+die10 = Die(10)
+for i in range(10):
+    die10.roll_die()    
+
+print(&#39;\n20 sides:&#39;)
+die20 = Die(20)
+for i in range(10):
+    die20.roll_die()    
+</code></pre>
+<h2 id="第10章-文件和异常"><a href="#第10章-文件和异常" class="headerlink" title="第10章 文件和异常"></a>第10章 文件和异常</h2><p>10-1</p>
+<pre><code>file = open(&#39;10-1.txt&#39;,&#39;w&#39;)
+file.write(&#39;Hello world.\n&#39;)
+file.write(&#39;Hello world.\n&#39;)
+file.write(&#39;hello worold.&#39;)
+file.close()
+
+filename = &#39;10-1.txt&#39;
+with open(filename) as f:
+    content = f.read()
+    print(content)
+
+with open(filename) as f:
+    for line in f:
+        print(line.rstrip())
+
+with open(filename) as f:
+    lines = f.readlines()
+for line in lines:
+    print(line.rstrip())
+</code></pre>
+<p>10-2</p>
+<pre><code>with open(&#39;10-1.txt&#39;) as f:
+    lines = f.readlines()
+for line in lines:
+    print(line.rstrip().replace(&#39;.&#39;,&#39;!&#39;))
+</code></pre>
+<p>10-3</p>
+<pre><code>name = input(&#39;Please enter your name: &#39;)
+with open(&#39;guest.txt&#39;,&#39;w&#39;) as f:
+    f.write(name)
+</code></pre>
+<p>10-4</p>
+<pre><code>filename = &#39;guest_book.txt&#39;
+
+print(&quot;Enter &#39;quit&#39; when you are finished.&quot;)
+
+while True:
+    name = input(&quot;\nWhat&#39;s your name?&quot;)
+    if name == &#39;quit&#39;:
+        break
+    else:
+        with open(filename,&#39;a&#39;) as f:
+            f.write(name + &#39;\n&#39;)
+        print(f&#39;Hi, &#123;name&#125;.&#39;)
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/02/googletrans/" rel="prev" title="使用googletrans在线翻译——还没写库就没了">
+      <i class="fa fa-chevron-left"></i> 使用googletrans在线翻译——还没写库就没了
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC6%E7%AB%A0-%E5%AD%97%E5%85%B8"><span class="nav-number">1.</span> <span class="nav-text">第6章 字典</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC7%E7%AB%A0-%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5%E5%92%8Cwhile%E5%BE%AA%E7%8E%AF"><span class="nav-number">2.</span> <span class="nav-text">第7章 用户输入和while循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC8%E7%AB%A0-%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">第8章 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC9%E7%AB%A0-%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">第9章 类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC10%E7%AB%A0-%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="nav-number">5.</span> <span class="nav-text">第10章 文件和异常</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YangChen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangChen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ic_public_file_filled.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ic_public_file_filled.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="首先要明确，百度云指百度的云服务或云服务器，平时说的“百度云”其实是百度网盘。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="借助百度云实现一些简单功能——以python文字识别为例">
+<meta property="og:url" content="http://example.com/2021/12/29/baiducloud/index.html">
+<meta property="og:site_name" content="Yc-Official">
+<meta property="og:description" content="首先要明确，百度云指百度的云服务或云服务器，平时说的“百度云”其实是百度网盘。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/image/rabit-math.jpg">
+<meta property="og:image" content="http://example.com/image/rabit-math-result.png">
+<meta property="og:image" content="http://example.com/image/fantizi.png">
+<meta property="og:image" content="http://example.com/image/fantizi-result.png">
+<meta property="article:published_time" content="2021-12-29T11:31:39.019Z">
+<meta property="article:modified_time" content="2021-12-31T05:57:55.594Z">
+<meta property="article:author" content="YangChen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/rabit-math.jpg">
+
+<link rel="canonical" href="http://example.com/2021/12/29/baiducloud/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>借助百度云实现一些简单功能——以python文字识别为例 | Yc-Official</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yc-Official</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Personal Website</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/29/baiducloud/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="YangChen">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yc-Official">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          借助百度云实现一些简单功能——以python文字识别为例
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-12-29 19:31:39" itemprop="dateCreated datePublished" datetime="2021-12-29T19:31:39+08:00">2021-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-12-31 13:57:55" itemprop="dateModified" datetime="2021-12-31T13:57:55+08:00">2021-12-31</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>首先要明确，百度云指百度的云服务或云服务器，平时说的“百度云”其实是百度网盘。</p>
+<span id="more"></span>
+
+<h2 id="登录百度云并进行设置"><a href="#登录百度云并进行设置" class="headerlink" title="登录百度云并进行设置"></a>登录百度云并进行设置</h2><p>浏览器中搜索百度云主页<code>cloud.baidu.com</code>，进入后在右上角登录并进入控制台。<br>我相信这个时代应该绝大多数人都有百度账号，实在没有可以短信验证码登录。<br>这里以文字识别为例，文字识别属于云服务中的AI能力，所以也可以从<code>ai.baidu.com</code>进行登录。</p>
+<p>进入控制台后点击左上角蓝底白色三道杠，依次点击产品服务-人工智能-文字识别。<br>要使用AI服务需要先创建应用。点击创建应用，跳转后填入应用名称，勾一下需要的服务，归属改为个人，填一下应用描述，点击立即创建即可。<br>接口额度需要领取，登录了就能领，不用实名认证，好评。就是领了之后可能会有百度云的工作人员回访。</p>
+<p>创建完成后点击管理应用，能看到应用名称，APP id，api key，secret key等信息。其中api key和secret key（ak，sk）后面会用到。到此基本设置就完成了。</p>
+<h2 id="调用api"><a href="#调用api" class="headerlink" title="调用api"></a>调用api</h2><p>设置完成后就可以开始调用百度云的接口实现相关功能了。<br>百度云提供了新手指南，在左侧点击技术文档-api文档-调用方式/具体服务文档（如“通用场景文字识别”）中查看。其中提到，在调用前需完成鉴权；调用相关服务有两种方式，一种是请求url数据格式，另一种是请求头域内容，本文使用url方式。</p>
+<h3 id="鉴权"><a href="#鉴权" class="headerlink" title="鉴权"></a>鉴权</h3><p>首先进行鉴权环节。<br>这一步需要向授权服务地址发送请求以获取access_token，需要用到request库。相关代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">host = https://aip.baidubce.com/oauth/<span class="number">2.0</span>/token?grant_type=client_credentials?client_id=前文提到的ak?client_secret=前文提到的sk</span><br><span class="line">response = requests.get(host)</span><br><span class="line"><span class="keyword">if</span> response:</span><br><span class="line">    at = response.json()[<span class="string">&#x27;access_token&#x27;</span>]</span><br><span class="line">    <span class="comment">#print(response.json())</span></span><br><span class="line">    <span class="comment">#上一行是文档中的示例代码，因为我们只使用access_token而不需打印，所以在json中直接提取即可</span></span><br></pre></td></tr></table></figure>
+<p>除了使用程序获取token外，还可以使用postman向百度云发送post请求获取token，但这样的话需要手动输入url以及复制返回的token，不如直接用程序一步到位直接用。</p>
+<h3 id="调用接口"><a href="#调用接口" class="headerlink" title="调用接口"></a>调用接口</h3><p>此处选用通用场景文字识别（高精度版）进行演示。<br>百度云的示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">通用文字识别（高精度版）</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">request_url = <span class="string">&quot;https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic&quot;</span></span><br><span class="line"><span class="comment"># 二进制方式打开图片文件</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;[本地文件]&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">img = base64.b64encode(f.read())</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">&quot;image&quot;</span>:img&#125;</span><br><span class="line">access_token = <span class="string">&#x27;[调用鉴权接口获取的token]&#x27;</span></span><br><span class="line">request_url = request_url + <span class="string">&quot;?access_token=&quot;</span> + access_token</span><br><span class="line">headers = &#123;<span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>&#125;</span><br><span class="line">response = requests.post(request_url, data=params, headers=headers)</span><br><span class="line"><span class="keyword">if</span> response:</span><br><span class="line">    <span class="built_in">print</span> (response.json())</span><br></pre></td></tr></table></figure>
+<p>第一行encoding……的作用是设置程序的编码格式为utf-8，一般来说只要用的不是记事本都不会有编码问题。<br>导入base64库的用途是以二进制方式读取要识别的图片。<br>整个调用过程大致为：读取需要识别的图片，设置好参数、access_token并向百度云接口发送请求，成功响应后打印结果。</p>
+<p>我在这个示例的基础上做了一点改进，具体代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用通用识别api</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog</span><br><span class="line"><span class="keyword">import</span> ctypes</span><br><span class="line"></span><br><span class="line">ctypes.windll.shcore.SetProcessDpiAwareness(<span class="number">1</span>)</span><br><span class="line"><span class="comment">#适配分辨率</span></span><br><span class="line"></span><br><span class="line">window = tk.Tk()</span><br><span class="line">window.withdraw()</span><br><span class="line"><span class="comment">#withdraw用于关闭窗口后的tk小窗口</span></span><br><span class="line"><span class="comment">#不知道是使用出了问题还是本身就有的bug</span></span><br><span class="line"></span><br><span class="line">filepath = filedialog.askopenfilename(title = <span class="string">&#x27;选择要识别的图片&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> filepath:</span><br><span class="line">    host = <span class="string">&#x27;https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&amp;client_id=换为你的ak&amp;client_secret=换为你的sk&#x27;</span></span><br><span class="line">    response = requests.get(host)</span><br><span class="line">    at = response.json()[<span class="string">&#x27;access_token&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 二进制方式打开图片文件</span></span><br><span class="line">    f = <span class="built_in">open</span>(filepath, <span class="string">&#x27;rb&#x27;</span>)</span><br><span class="line">    img = base64.b64encode(f.read())</span><br><span class="line"></span><br><span class="line">    params = &#123;<span class="string">&quot;image&quot;</span>:img&#125;</span><br><span class="line">    request_url = <span class="string">f&quot;https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=<span class="subst">&#123;at&#125;</span>&quot;</span></span><br><span class="line">    headers = &#123;<span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>&#125;</span><br><span class="line">    response = requests.post(request_url, data = params, headers = headers)</span><br><span class="line">    js = response.json()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> js[<span class="string">&#x27;words_result&#x27;</span>]:</span><br><span class="line">        <span class="built_in">print</span>(word[<span class="string">&#x27;words&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p>其中，tkinter库是一个python图形界面相关的库，ctypes起适配屏幕分辨率的作用。<br>具体来说，这个版本打开一个窗口，可以选择电脑中任何位置的图片进行识别，不需要像示例中那样输入图片路径。由于百度云的文字识别是逐行进行的，所以在最后的json文件中有一个由字典组成的words_result列表，每个words对应每行的识别结果，这里使用了一个循环将其分行打印出来，基本可以按位置还原图片中的文字内容。</p>
+<h3 id="展示识别效果"><a href="#展示识别效果" class="headerlink" title="展示识别效果"></a>展示识别效果</h3><p>原图<br><img src="/image/rabit-math.jpg"></p>
+<p>以下为识别结果<br><img src="/image/rabit-math-result.png"></p>
+<p>繁体字也可以识别：<br><img src="/image/fantizi.png"><br><img src="/image/fantizi-result.png"></p>
+<h2 id="自定义参数"><a href="#自定义参数" class="headerlink" title="自定义参数"></a>自定义参数</h2><p>在最基础的识别外，还可以对程序进行参数指定以达到想要的识别效果，如在<code>headers = &#123;&quot;content-type&quot;:&quot;application/x-www-form-urlencoded&quot;</code>可以指定段落、旋转方向、置信度、语种、传入pdf等选项；在返回的response.json中可以查看以上的各种参数，具体见官方文档描述。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/29/wordcloud/" rel="prev" title="使用wordcloud库制作词云">
+      <i class="fa fa-chevron-left"></i> 使用wordcloud库制作词云
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/02/googletrans/" rel="next" title="使用googletrans在线翻译——还没写库就没了">
+      使用googletrans在线翻译——还没写库就没了 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E7%99%BE%E5%BA%A6%E4%BA%91%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">登录百度云并进行设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%94%A8api"><span class="nav-number">2.</span> <span class="nav-text">调用api</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%89%B4%E6%9D%83"><span class="nav-number">2.1.</span> <span class="nav-text">鉴权</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.2.</span> <span class="nav-text">调用接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%95%E7%A4%BA%E8%AF%86%E5%88%AB%E6%95%88%E6%9E%9C"><span class="nav-number">2.3.</span> <span class="nav-text">展示识别效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">自定义参数</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">YangChen</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YangChen</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
